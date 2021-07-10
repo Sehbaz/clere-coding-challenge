@@ -3,7 +3,8 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className="home-container">
-      Hello from Home Component
+      Home Component
+      <button>ADD</button>
       <div>
         <table>
           <tbody>
@@ -15,9 +16,21 @@ const Home = () => {
             </tr>
             <tr>
               <td>1</td>
-              <td>Sehbaz</td>
+              <td>Sehbaz Rafik</td>
               <td>10 GBP</td>
-              <td>Edit | Delete</td>
+              <td>
+                {" "}
+                <button>EDIT</button> <button>DELETE</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Sehbaz Faiz</td>
+              <td>10 GBP</td>
+              <td>
+                {" "}
+                <button>EDIT</button> <button>DELETE</button>
+              </td>
             </tr>
           </tbody>
         </table>
