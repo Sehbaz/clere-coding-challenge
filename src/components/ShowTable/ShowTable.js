@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../Common/Common.css";
 import { Link } from "react-router-dom";
 const ShowTable = () => {
   return (
