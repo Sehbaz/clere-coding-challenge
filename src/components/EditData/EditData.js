@@ -11,18 +11,22 @@ const EditData = () => {
       </Link>
       <div>
         <form>
-          <input name="name" type="text" placeholder="name" /> <br />
+          <input name="name" type="text" placeholder="name" required /> <br />
           <br />
-          <input name="price" type="number" placeholder="price" /> <br />
+          <input name="price" type="number" placeholder="price" required />{" "}
           <br />
-          <input name="currency" type="text" placeholder="currency" /> <br />
           <br />
-          <Link to="/">
-            {" "}
-            <button type="submit" value="Submit">
-              Submit
-            </button>
-          </Link>
+          <input
+            name="currency"
+            type="text"
+            placeholder="currency"
+            required
+          />{" "}
+          <br />
+          <br />
+          <button type="submit" value="Submit">
+            Submit
+          </button>
         </form>
       </div>
     </div>
