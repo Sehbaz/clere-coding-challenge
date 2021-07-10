@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
 const ShowTable = () => {
   return (
     <div>
@@ -19,7 +20,11 @@ const ShowTable = () => {
               <td>10 GBP</td>
               <td>
                 {" "}
-                <button>EDIT</button> <button>DELETE</button>
+                <Link to="/editData">
+                  {" "}
+                  <button>Edit</button>
+                </Link>
+                <button>DELETE</button>
               </td>
             </tr>
             <tr>
@@ -28,7 +33,11 @@ const ShowTable = () => {
               <td>10 GBP</td>
               <td>
                 {" "}
-                <button>EDIT</button> <button>DELETE</button>
+                <Link to="/editData">
+                  {" "}
+                  <button>Edit</button>
+                </Link>{" "}
+                <button>DELETE</button>
               </td>
             </tr>
           </tbody>
