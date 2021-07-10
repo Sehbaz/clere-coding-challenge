@@ -1,8 +1,9 @@
 import React from "react";
 import "./Home.css";
+import "../Common/Common.css";
 const Home = () => {
   return (
-    <div className="home-container">
+    <div className="home-container center-container">
       Home Component
       <button>ADD</button>
       <div>
