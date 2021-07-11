@@ -9,10 +9,14 @@ const ShowTable = () => {
       setData(result.data);
     });
   };
-
   useEffect(() => {
     getAllData();
   }, []);
+  const deleteRecord = (e) => {
+    axios
+      .delete("https://test.clerenet.com/product/" + e)
+      .then(() => getAllData());
+  };
   return (
     <div>
       Show table component
@@ -39,7 +43,9 @@ const ShowTable = () => {
                     {" "}
                     <button>Edit</button>
                   </Link>
-                  <button>DELETE</button>
+                  <button onClick={deleteRecord.bind(this, row.id)}>
+                    DELETE
+                  </button>
                 </td>
               </tr>
             ))}
