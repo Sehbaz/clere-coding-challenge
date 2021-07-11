@@ -20,6 +20,7 @@ const EditData = () => {
 
   const location = useLocation();
   const productId = location.state.productId;
+
   useEffect(() => {
     axios
       .get(`https://test.clerenet.com/product/` + productId)
@@ -28,7 +29,38 @@ const EditData = () => {
         setPrice(result.data.price);
         setCurrency(result.data.currency);
       });
+  }, [productId]);
+
+  /*
+  axios.defaults.baseURL = "https://test.clerenet.com/product/";
+  useEffect(() => {
+    const source = axios.CancelToken.source();
+
+    const fetchUsers = async () => {
+      try {
+        await axios
+          .get(axios.defaults.baseURL + productId, {
+            cancelToken: source.token,
+          })
+          .then((result) => {
+            setName(result.data.name);
+            setPrice(result.data.price);
+            setCurrency(result.data.currency);
+          });
+      } catch (error) {
+        if (axios.isCancel(error)) {
+        } else {
+          throw error;
+        }
+      }
+    };
+    fetchUsers();
+    return () => {
+      source.cancel();
+    };
   }, []);
+  */
+
   const edit = (event) => {
     const newData = {
       id: productId,
