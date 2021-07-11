@@ -19,6 +19,7 @@ const AddData = () => {
   };
 
   const addEntry = (e) => {
+    e.preventDefault();
     const newEntry = {
       name: name,
       price: parseFloat(price),
@@ -68,7 +69,7 @@ const AddData = () => {
           <br />
           <br />
           <button type="submit" value="Submit">
-            Submit
+            SUBMIT
           </button>
         </form>
       </div>
