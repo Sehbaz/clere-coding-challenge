@@ -90,6 +90,7 @@ const EditData = () => {
             placeholder="name"
             required
             pattern="[A-Z a-z]*"
+            maxlength="30"
             onChange={onInputNameChangeHandler}
           />{" "}
           <br />
