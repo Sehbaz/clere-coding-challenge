@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "../Common/Common.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 const AddData = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [currency, setCurrency] = useState("");
+  let history = useHistory();
 
   const onInputNameChangeHandler = (e) => {
     setName(e.target.value);
@@ -19,6 +21,8 @@ const AddData = () => {
   const addEntry = (e) => {
     e.preventDefault();
     const newEntry = { name: name, price: parseInt(price), currency: currency };
+    axios.post(`https://test.clerenet.com/product`, newEntry).then((res) => {});
+    history.push("/");
     console.log(newEntry);
   };
 
