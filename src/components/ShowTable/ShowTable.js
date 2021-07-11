@@ -7,12 +7,16 @@ import axios from "axios";
 axios.defaults.baseURL = "https://test.clerenet.com/product";
 const ShowTable = () => {
   const [data, setData] = useState([]);
+  const [datalength, setDataLength] = useState("none");
 
   const getAllData = () => {
     axios
       .get(axios.defaults.baseURL)
       .then((res) => {
         setData(res.data);
+        if (res.data.length < 1) {
+          setDataLength("none");
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -30,6 +34,9 @@ const ShowTable = () => {
           })
           .then((res) => {
             setData(res.data);
+            if (res.data.length > 0) {
+              setDataLength("block");
+            }
           });
       } catch (error) {
         if (axios.isCancel(error)) {
@@ -38,6 +45,7 @@ const ShowTable = () => {
         }
       }
     };
+
     fetchUsers();
     return () => {
       source.cancel();
@@ -69,9 +77,11 @@ const ShowTable = () => {
       .delete("https://test.clerenet.com/product/" + e)
       .then(() => getAllData());
   };
+
   return (
     <div>
       Show table component
+      <div style={{ display: datalength }}> data recieved</div>
       <div>
         <table>
           <tbody>
@@ -81,6 +91,7 @@ const ShowTable = () => {
               <td>Price</td>
               <td>Action</td>
             </tr>
+
             {data.map((row) => (
               <tr key={row.id}>
                 <td>{row.id}</td>

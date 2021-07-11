@@ -19,7 +19,12 @@ const AddData = () => {
   };
 
   const addEntry = (e) => {
-    const newEntry = { name: name, price: parseInt(price), currency: currency };
+    const newEntry = {
+      name: name,
+      price: parseFloat(price),
+      currency: currency,
+    };
+
     axios.post(`https://test.clerenet.com/product`, newEntry).then((res) => {});
     history.push("/");
   };
@@ -46,6 +51,8 @@ const AddData = () => {
             name="price"
             type="number"
             placeholder="price"
+            min="0"
+            step="0.01"
             required
             onChange={onInputPriceChangeHandler}
           />{" "}
