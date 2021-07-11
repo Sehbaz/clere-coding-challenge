@@ -7,7 +7,8 @@ import axios from "axios";
 axios.defaults.baseURL = "https://test.clerenet.com/product";
 const ShowTable = () => {
   const [data, setData] = useState([]);
-  const [datalength, setDataLength] = useState("none");
+  const [dataIndicator, setDataIndicator] = useState("none");
+  const [noDataIndicator, setNoDataIndicator] = useState("block");
 
   const getAllData = () => {
     axios
@@ -15,7 +16,8 @@ const ShowTable = () => {
       .then((res) => {
         setData(res.data);
         if (res.data.length < 1) {
-          setDataLength("none");
+          setDataIndicator("none");
+          setNoDataIndicator("block");
         }
       })
       .catch((err) => {
@@ -35,7 +37,8 @@ const ShowTable = () => {
           .then((res) => {
             setData(res.data);
             if (res.data.length > 0) {
-              setDataLength("block");
+              setDataIndicator("block");
+              setNoDataIndicator("none");
             }
           });
       } catch (error) {
@@ -81,8 +84,11 @@ const ShowTable = () => {
   return (
     <div>
       Show table component
-      <div style={{ display: datalength }}> data recieved</div>
-      <div>
+      <div style={{ display: noDataIndicator }}>
+        {" "}
+        No Data in database recieved
+      </div>
+      <div style={{ display: dataIndicator }}>
         <table>
           <tbody>
             <tr>
