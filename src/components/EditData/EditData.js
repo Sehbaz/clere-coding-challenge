@@ -28,7 +28,6 @@ const EditData = () => {
         setPrice(result.data.price);
         setCurrency(result.data.currency);
       });
-    return () => {};
   }, []);
   const edit = (event) => {
     const newData = {

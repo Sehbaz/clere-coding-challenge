@@ -10,11 +10,20 @@ const ShowTable = () => {
       setData(result.data);
     });
   };
+
   useEffect(() => {
+    let mounted = true;
     axios.get(`https://test.clerenet.com/product`).then((result) => {
-      setData(result.data);
+      if (mounted === true) {
+        setData(result.data);
+      }
     });
-  }, [data]);
+
+    return function cleanup() {
+      mounted = false;
+    };
+  }, [getAllData]);
+
   const deleteRecord = (e) => {
     axios
       .delete("https://test.clerenet.com/product/" + e)

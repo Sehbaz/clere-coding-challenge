@@ -22,7 +22,6 @@ const AddData = () => {
     const newEntry = { name: name, price: parseInt(price), currency: currency };
     axios.post(`https://test.clerenet.com/product`, newEntry).then((res) => {});
     history.push("/");
-    console.log(newEntry);
   };
 
   return (
