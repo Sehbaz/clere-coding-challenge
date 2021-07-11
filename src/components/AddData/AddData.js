@@ -19,7 +19,6 @@ const AddData = () => {
   };
 
   const addEntry = (e) => {
-    e.preventDefault();
     const newEntry = { name: name, price: parseInt(price), currency: currency };
     axios.post(`https://test.clerenet.com/product`, newEntry).then((res) => {});
     history.push("/");

@@ -4,14 +4,17 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 const ShowTable = () => {
   const [data, setData] = useState([]);
+
   const getAllData = () => {
     axios.get(`https://test.clerenet.com/product`).then((result) => {
       setData(result.data);
     });
   };
   useEffect(() => {
-    getAllData();
-  }, []);
+    axios.get(`https://test.clerenet.com/product`).then((result) => {
+      setData(result.data);
+    });
+  }, [data]);
   const deleteRecord = (e) => {
     axios
       .delete("https://test.clerenet.com/product/" + e)
@@ -39,8 +42,14 @@ const ShowTable = () => {
                 </td>
                 <td>
                   {" "}
-                  <Link to="/editData">
-                    {" "}
+                  <Link
+                    to={{
+                      pathname: "/editData",
+                      state: {
+                        productId: row.id,
+                      },
+                    }}
+                  >
                     <button>Edit</button>
                   </Link>
                   <button onClick={deleteRecord.bind(this, row.id)}>

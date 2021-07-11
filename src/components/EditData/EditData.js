@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useHistory } from "react-router-dom";
+import axios from "axios";
 import "../Common/Common.css";
 const EditData = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [currency, setCurrency] = useState("");
+  let history = useHistory();
 
   const onInputNameChangeHandler = (e) => {
     setName(e.target.value);
@@ -16,11 +18,30 @@ const EditData = () => {
     setCurrency(e.target.value);
   };
 
-  const addEntry = (e) => {
-    e.preventDefault();
-    const newEntry = { name: name, price: parseInt(price), currency: currency };
-    console.log(newEntry);
+  const location = useLocation();
+  const productId = location.state.productId;
+  useEffect(() => {
+    axios
+      .get(`https://test.clerenet.com/product/` + productId)
+      .then((result) => {
+        setName(result.data.name);
+        setPrice(result.data.price);
+        setCurrency(result.data.currency);
+      });
+    return () => {};
+  }, []);
+  const edit = (event) => {
+    const newData = {
+      id: productId,
+      name: name,
+      price: parseInt(price),
+      currency: currency,
+    };
+
+    axios.put(`https://test.clerenet.com/product`, newData).then((res) => {});
+    history.push("/");
   };
+
   return (
     <div className="center-container">
       Edit Data Component
@@ -29,10 +50,11 @@ const EditData = () => {
         <button>Back</button>
       </Link>
       <div>
-        <form onSubmit={addEntry}>
+        <form onSubmit={edit}>
           <input
             name="name"
             type="text"
+            value={name}
             placeholder="name"
             required
             onChange={onInputNameChangeHandler}
@@ -43,6 +65,7 @@ const EditData = () => {
             name="price"
             type="number"
             placeholder="price"
+            value={price}
             required
             onChange={onInputPriceChangeHandler}
           />{" "}
@@ -51,6 +74,7 @@ const EditData = () => {
           <input
             name="currency"
             type="text"
+            value={currency}
             placeholder="currency"
             required
             onChange={onInputCurrencyChangeHandler}
