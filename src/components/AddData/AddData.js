@@ -54,6 +54,7 @@ const AddData = () => {
             type="number"
             placeholder="price"
             min="0.01"
+            max="1000000.00"
             step="0.01"
             required
             onChange={onInputPriceChangeHandler}
