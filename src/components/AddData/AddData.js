@@ -44,6 +44,7 @@ const AddData = () => {
             type="text"
             placeholder="name"
             required
+            pattern="[A-Z a-z]*"
             onChange={onInputNameChangeHandler}
           />{" "}
           <br />
@@ -62,6 +63,7 @@ const AddData = () => {
           <input
             name="currency"
             type="text"
+            pattern="[A-Za-z]*"
             placeholder="currency"
             required
             onChange={onInputCurrencyChangeHandler}
