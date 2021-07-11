@@ -99,7 +99,7 @@ const EditData = () => {
             type="number"
             placeholder="price"
             value={price}
-            min="0"
+            min="0.01"
             step="0.01"
             required
             onChange={onInputPriceChangeHandler}
