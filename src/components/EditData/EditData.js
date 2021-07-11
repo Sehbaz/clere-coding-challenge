@@ -62,10 +62,11 @@ const EditData = () => {
   */
 
   const edit = (event) => {
+    event.preventDefault();
     const newData = {
       id: productId,
       name: name,
-      price: parseInt(price),
+      price: parseFloat(price),
       currency: currency,
     };
 
@@ -88,6 +89,7 @@ const EditData = () => {
             value={name}
             placeholder="name"
             required
+            pattern="[A-Z a-z]*"
             onChange={onInputNameChangeHandler}
           />{" "}
           <br />
@@ -97,6 +99,8 @@ const EditData = () => {
             type="number"
             placeholder="price"
             value={price}
+            min="0"
+            step="0.01"
             required
             onChange={onInputPriceChangeHandler}
           />{" "}
@@ -105,6 +109,7 @@ const EditData = () => {
           <input
             name="currency"
             type="text"
+            pattern="[A-Za-z]*"
             value={currency}
             placeholder="currency"
             required
