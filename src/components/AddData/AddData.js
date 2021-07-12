@@ -6,6 +6,9 @@ const AddData = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [currency, setCurrency] = useState("");
+  const [invalidCurrencyIndicator, setInvalidCurrencyIndicator] =
+    useState("none");
+
   let history = useHistory();
 
   const onInputNameChangeHandler = (e) => {
@@ -17,17 +20,26 @@ const AddData = () => {
   const onInputCurrencyChangeHandler = (e) => {
     setCurrency(e.target.value);
   };
+  var validateCurrencyCode = require("validate-currency-code");
 
   const addEntry = (e) => {
     e.preventDefault();
-    const newEntry = {
-      name: name,
-      price: parseFloat(price),
-      currency: currency,
-    };
+    if (validateCurrencyCode(currency.toUpperCase())) {
+      // code that should run when the currencycode is valid
+      setInvalidCurrencyIndicator("none");
+      const newEntry = {
+        name: name,
+        price: parseFloat(price),
+        currency: currency,
+      };
 
-    axios.post(`https://test.clerenet.com/product`, newEntry).then((res) => {});
-    history.push("/");
+      axios
+        .post(`https://test.clerenet.com/product`, newEntry)
+        .then((res) => {});
+      history.push("/");
+    } else {
+      setInvalidCurrencyIndicator("block");
+    }
   };
 
   return (
@@ -62,6 +74,9 @@ const AddData = () => {
           />{" "}
           <br />
           <br />
+          <span style={{ display: invalidCurrencyIndicator }}>
+            PLease enter correct curreny format
+          </span>
           <input
             name="currency"
             type="text"
