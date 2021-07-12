@@ -6,6 +6,8 @@ const EditData = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [currency, setCurrency] = useState("");
+  const [invalidCurrencyIndicator, setInvalidCurrencyIndicator] =
+    useState("none");
   let history = useHistory();
 
   const onInputNameChangeHandler = (e) => {
@@ -60,18 +62,26 @@ const EditData = () => {
     };
   }, []);
   */
-
+  var validateCurrencyCode = require("validate-currency-code");
   const edit = (event) => {
     event.preventDefault();
-    const newData = {
-      id: productId,
-      name: name,
-      price: parseFloat(price),
-      currency: currency,
-    };
 
-    axios.put(`https://test.clerenet.com/product`, newData).then((res) => {});
-    history.push("/");
+    if (validateCurrencyCode(currency.toUpperCase())) {
+      // code that should run when the currencycode is valid
+      setInvalidCurrencyIndicator("none");
+
+      const newData = {
+        id: productId,
+        name: name,
+        price: parseFloat(price),
+        currency: currency,
+      };
+
+      axios.put(`https://test.clerenet.com/product`, newData).then((res) => {});
+      history.push("/");
+    } else {
+      setInvalidCurrencyIndicator("block");
+    }
   };
 
   return (
@@ -108,6 +118,9 @@ const EditData = () => {
           />{" "}
           <br />
           <br />
+          <span style={{ display: invalidCurrencyIndicator }}>
+            PLease enter correct curreny format
+          </span>
           <input
             name="currency"
             type="text"
