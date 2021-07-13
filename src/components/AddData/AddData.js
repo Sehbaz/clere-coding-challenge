@@ -2,16 +2,7 @@ import React, { useState } from "react";
 import "../Common/Common.css";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import {
-  Card,
-  CardContent,
-  makeStyles,
-  TextField,
-  withStyles,
-  Typography,
-  FormHelperText,
-} from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+
 import "./AddData.css";
 
 /*

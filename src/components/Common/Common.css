@@ -101,14 +101,14 @@ form {
   box-shadow: 3px 5px 10px 0px rgba(35, 100, 210, 0.3);
 }
 @media only screen and (max-width: 600px) {
-  .addData-container {
-    width: 90vw;
+  .form-data-container {
+    width: 80vw;
     max-height: fit-content;
     padding: 1em;
   }
 }
 @media only screen and (max-width: 900px) {
-  .addData-container {
+  .form-data-container {
     width: 60vw;
     max-height: fit-content;
     padding: 4em 3em;
