@@ -261,6 +261,14 @@ const AddData = () => {
   return (
     <div className="center-container form-data-container">
       <h1 className="title">Add product</h1>
+      <div className="back-btn-container">
+        {" "}
+        <Link to="/">
+          {" "}
+          <button className="back-btn">CANCEL</button>
+        </Link>
+      </div>
+
       <form onSubmit={addEntry} className="card-input">
         <label className="label">Name</label>
         <div className="input-wrapper">

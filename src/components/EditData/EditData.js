@@ -73,10 +73,13 @@ const EditData = () => {
   return (
     <div className="center-container form-data-container">
       <h1 className="title">Edit product</h1>
-      <Link to="/">
+      <div className="back-btn-container">
         {" "}
-        <button>Back</button>
-      </Link>
+        <Link to="/">
+          {" "}
+          <button className="back-btn">CANCEL</button>
+        </Link>
+      </div>
 
       <form onSubmit={edit} className="card-input">
         <div className="input-wrapper">
