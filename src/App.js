@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import AddData from "./components/AddData/AddData";
 import EditData from "./components/EditData/EditData";
+// Routing function
 function App() {
   return (
     <div className="App">

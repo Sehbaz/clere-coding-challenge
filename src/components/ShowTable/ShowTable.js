@@ -4,12 +4,16 @@ import "./ShowTable.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+//Default API endpoint
 axios.defaults.baseURL = "https://test.clerenet.com/product";
+
+//Showing all the records
 const ShowTable = () => {
   const [data, setData] = useState([]);
   const [dataIndicator, setDataIndicator] = useState("none");
   const [noDataIndicator, setNoDataIndicator] = useState("block");
 
+  //Fetching all the records from database
   const getAllData = () => {
     axios
       .get(axios.defaults.baseURL)
@@ -55,26 +59,7 @@ const ShowTable = () => {
     };
   }, [data]);
 
-  /*
- const getAllData = () => {
-    axios.get(`https://test.clerenet.com/product`).then((result) => {
-      setData(result.data);
-    });
-  };
-  useEffect(() => {
-    let mounted = true;
-    axios.get(`https://test.clerenet.com/product`).then((result) => {
-      if (mounted === true) {
-        setData(result.data);
-      }
-    });
-
-    return function cleanup() {
-      mounted = false;
-    };
-  }, [getAllData]);
-  */
-
+  //Deleting the record from databse by ID
   const deleteRecord = (e) => {
     axios
       .delete("https://test.clerenet.com/product/" + e)
