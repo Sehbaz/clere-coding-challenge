@@ -71,19 +71,22 @@ const EditData = () => {
   };
 
   return (
-    <div className="center-container">
-      Edit Data Component
+    <div className="center-container form-data-container">
+      <h1 className="title">Edit product</h1>
       <Link to="/">
         {" "}
         <button>Back</button>
       </Link>
-      <div>
-        <form onSubmit={edit}>
+
+      <form onSubmit={edit} className="card-input">
+        <div className="input-wrapper">
+          <label className="label">Name</label>
           <input
             name="name"
             type="text"
             value={name}
             placeholder="name"
+            className="inputField"
             required
             pattern="[A-Z a-z]*"
             maxLength="30"
@@ -91,11 +94,13 @@ const EditData = () => {
           />{" "}
           <br />
           <br />
+          <label className="label">Price</label>
           <input
             name="price"
             type="number"
             placeholder="price"
             value={price}
+            className="inputField"
             min="0.01"
             step="0.01"
             max="1000000.00"
@@ -104,7 +109,11 @@ const EditData = () => {
           />{" "}
           <br />
           <br />
-          <span style={{ display: invalidCurrencyIndicator }}>
+          <label className="label">Currency</label>
+          <span
+            style={{ display: invalidCurrencyIndicator }}
+            className="label-error"
+          >
             PLease enter correct curreny format
           </span>
           <input
@@ -113,16 +122,17 @@ const EditData = () => {
             pattern="[A-Za-z]*"
             value={currency}
             placeholder="currency"
+            className="inputField"
             required
             onChange={onInputCurrencyChangeHandler}
           />{" "}
           <br />
           <br />
-          <button type="submit" value="Submit">
-            Submit
-          </button>
-        </form>
-      </div>
+        </div>
+        <button type="submit" value="Submit" className="submit-btn">
+          UPDATE
+        </button>
+      </form>
     </div>
   );
 };

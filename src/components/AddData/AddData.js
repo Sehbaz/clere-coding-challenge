@@ -100,11 +100,10 @@ const AddData = () => {
       //Create a new object
       const newEntry = {
         name: name,
-        price: parseFloat(price).toFixed(2),
+        price: parseFloat(price),
         currency: currency,
       };
-      const p = parseFloat(price);
-      console.log(p.toFixed(2));
+
       // Using axios.post() method to add a new record
       axios
         .post(`https://test.clerenet.com/product`, newEntry)
@@ -260,10 +259,11 @@ const AddData = () => {
       </Card>
   */
   return (
-    <div className="center-container addData-container">
-      <div className="card-input">
-        <form onSubmit={addEntry}>
-          <label className="label">Name</label>
+    <div className="center-container form-data-container">
+      <h1 className="title">Add product</h1>
+      <form onSubmit={addEntry} className="card-input">
+        <label className="label">Name</label>
+        <div className="input-wrapper">
           <input
             type="text"
             placeholder="Macbook"
@@ -291,8 +291,11 @@ const AddData = () => {
           <br />
           <br />
           <label className="label">Currency</label>
-          <span style={{ display: invalidCurrencyIndicator }}>
-            PLease enter correct curreny format
+          <span
+            style={{ display: invalidCurrencyIndicator }}
+            className="label-error"
+          >
+            Please enter correct curreny format
           </span>
           <input
             type="text"
@@ -305,11 +308,11 @@ const AddData = () => {
           />{" "}
           <br />
           <br />
-          <button type="submit" value="Submit">
-            SUBMIT
-          </button>
-        </form>
-      </div>
+        </div>
+        <button type="submit" value="Submit" className="submit-btn">
+          SUBMIT
+        </button>
+      </form>
     </div>
   );
 };
