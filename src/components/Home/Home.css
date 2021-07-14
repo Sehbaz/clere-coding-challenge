@@ -3,6 +3,7 @@
   background-color: white;
   padding: 2em;
   border-radius: 12px;
+  width: fit-content;
 }
 .table-container {
   margin: 1.5em;
