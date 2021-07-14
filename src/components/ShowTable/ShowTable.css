@@ -3,5 +3,16 @@
 }
 .main-container {
   background-color: white;
+  width: fit-content;
   font-family: "Source Sans Pro", sans-serif;
+}
+.no-data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (max-width: 600px) {
+  .main-container {
+    width: 60vw;
+  }
 }

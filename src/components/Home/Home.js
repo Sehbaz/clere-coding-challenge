@@ -3,18 +3,19 @@ import "./Home.css";
 import "../Common/Common.css";
 import { Link } from "react-router-dom";
 import ShowTable from "../ShowTable/ShowTable";
+
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 const Home = () => {
   return (
     <div className="home-container center-container">
       <div>
         {" "}
-        <h1 className="title">Product Details </h1>
-      </div>
-      <div>
-        {" "}
         <Link to="/addData">
           {" "}
-          <button className="submit-btn">ADD</button>
+          <button className="submit-btn">
+            {" "}
+            <AddCircleOutlineIcon></AddCircleOutlineIcon>
+          </button>
         </Link>
       </div>
 

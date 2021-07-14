@@ -9,8 +9,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
 import { Button } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
@@ -20,6 +20,7 @@ import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableFooter from "@material-ui/core/TableFooter";
+import { ReactComponent as NoData } from "../../Image/noDataImg.svg";
 //Default API endpoint
 axios.defaults.baseURL = "https://test.clerenet.com/product";
 const useStyles1 = makeStyles((theme) => ({
@@ -99,9 +100,6 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-function createData(name, calories, fat) {
-  return { name, calories, fat };
-}
 const useStyles2 = makeStyles({
   table: {
     minWidth: 500,
@@ -186,10 +184,20 @@ const ShowTable = () => {
     <div className="main-container">
       <div style={{ display: noDataIndicator }}>
         {" "}
-        No Data in database recieved
+        <div className="no-data-container">
+          {" "}
+          <Typography variant="h5" gutterBottom>
+            Start by adding first product
+          </Typography>
+          <NoData width="100%" height="100%" />
+        </div>
       </div>
       <div style={{ display: dataIndicator }}>
-        <TableContainer component={Paper}>
+        <div>
+          {" "}
+          <h1 className="title">Product Details </h1>
+        </div>
+        <TableContainer>
           <Table
             className={classes.table}
             aria-label="custom pagination table"
@@ -254,15 +262,11 @@ const ShowTable = () => {
             <TableFooter>
               <TableRow>
                 <TablePagination
-                  rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+                  rowsPerPageOptions={[]}
                   colSpan={3}
                   count={data.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
-                  SelectProps={{
-                    inputProps: { "aria-label": "rows per page" },
-                    native: true,
-                  }}
                   onPageChange={handleChangePage}
                   onRowsPerPageChange={handleChangeRowsPerPage}
                   ActionsComponent={TablePaginationActions}
@@ -271,94 +275,6 @@ const ShowTable = () => {
             </TableFooter>
           </Table>
         </TableContainer>
-        {/*
-        <TableContainer component={Paper}>
-          <Table aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell align="center">ID</TableCell>
-                <TableCell align="center">Name</TableCell>
-                <TableCell align="center">Price</TableCell>
-                <TableCell align="center">Action</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {data.map((row) => (
-                <TableRow key={row.id}>
-                  <TableCell align="center">{row.id}</TableCell>
-                  <TableCell component="th" scope="row" align="center">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="center">
-                    {row.price} {row.currency}
-                  </TableCell>
-                  <TableCell align="center">
-                    <Link
-                      to={{
-                        pathname: "/editData",
-                        state: {
-                          productId: row.id,
-                        },
-                      }}
-                    >
-                      {" "}
-                      <Button variant="outlined" color="primary">
-                        Edit
-                      </Button>
-                    </Link>
-
-                    <Button
-                      variant="outlined"
-                      color="secondary"
-                      onClick={deleteRecord.bind(this, row.id)}
-                    >
-                      Delete
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-       
-        <table>
-          <tbody>
-            <tr>
-              <td>ID</td>
-              <td>Name</td>
-              <td>Price</td>
-              <td>Action</td>
-            </tr>
-
-            {data.map((row) => (
-              <tr key={row.id}>
-                <td>{row.id}</td>
-                <td>{row.name}</td>
-                <td>
-                  {row.price}
-                  <span className="capi">{row.currency}</span>
-                </td>
-                <td>
-                  {" "}
-                  <Link
-                    to={{
-                      pathname: "/editData",
-                      state: {
-                        productId: row.id,
-                      },
-                    }}
-                  >
-                    <button>Edit</button>
-                  </Link>
-                  <button onClick={deleteRecord.bind(this, row.id)}>
-                    DELETE
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-                  */}
       </div>
     </div>
   );
