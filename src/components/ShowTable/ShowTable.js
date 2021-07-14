@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../Common/Common.css";
 import "./ShowTable.css";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Table from "@material-ui/core/Table";
@@ -9,7 +11,6 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import { Button } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -237,16 +238,13 @@ const ShowTable = () => {
                           },
                         }}
                       >
-                        {" "}
-                        <button className="record-btn">Edit</button>
+                        <IconButton aria-label="edit">
+                          <EditIcon />
+                        </IconButton>
                       </Link>
-
-                      <button
-                        className="record-btn"
-                        onClick={deleteRecord.bind(this, row.id)}
-                      >
-                        🗑️
-                      </button>
+                      <IconButton aria-label="delete" color="secondary">
+                        <DeleteIcon onClick={deleteRecord.bind(this, row.id)} />
+                      </IconButton>
                     </div>
                   </TableCell>
                 </TableRow>
