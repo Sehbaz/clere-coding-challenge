@@ -188,7 +188,7 @@ const ShowTable = () => {
         <div className="no-data-container">
           {" "}
           <Typography variant="h5" gutterBottom>
-            Start by adding first product 📦
+            start by adding first product 📦
           </Typography>
           <NoData width="100%" height="100%" />
         </div>
@@ -226,7 +226,7 @@ const ShowTable = () => {
                   <TableCell>{row.id}</TableCell>
                   <TableCell align="left">{row.name}</TableCell>
                   <TableCell align="left">
-                    {row.price} {row.currency}
+                    {row.price} <span className="capi">{row.currency}</span>
                   </TableCell>
                   <TableCell align="center">
                     <div>

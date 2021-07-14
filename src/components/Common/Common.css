@@ -73,7 +73,7 @@ form {
   font-family: "Source Sans Pro", sans-serif;
   box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);
   color: #fff;
-  margin-top: 20px;
+  margin: 20px 0;
   cursor: pointer;
 }
 .back-btn-container {
