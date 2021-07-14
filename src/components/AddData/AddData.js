@@ -91,7 +91,7 @@ const AddData = () => {
           <input
             type="number"
             className="inputField"
-            placeholder="10.99"
+            placeholder="999.99"
             name="price"
             min="0.01"
             max="1000000.00"

@@ -5,6 +5,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Snackbar from "@material-ui/core/Snackbar";
+import CloseIcon from "@material-ui/icons/Close";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -13,6 +15,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
+import MuiAlert from "@material-ui/lab/Alert";
+import Button from "@material-ui/core/Button";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import FirstPageIcon from "@material-ui/icons/FirstPage";
@@ -22,6 +26,7 @@ import LastPageIcon from "@material-ui/icons/LastPage";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableFooter from "@material-ui/core/TableFooter";
 import { ReactComponent as NoData } from "../../Image/noDataImg.svg";
+
 //Default API endpoint
 axios.defaults.baseURL = "https://test.clerenet.com/product";
 const useStyles1 = makeStyles((theme) => ({
@@ -159,8 +164,11 @@ const ShowTable = () => {
     };
   }, [data]);
 
+  const [open, setOpen] = React.useState(false);
+
   //Deleting the record from databse by ID
   const deleteRecord = (e) => {
+    setOpen(true);
     axios
       .delete("https://test.clerenet.com/product/" + e)
       .then(() => getAllData());
@@ -180,6 +188,17 @@ const ShowTable = () => {
     setPage(0);
   };
   const classes = useStyles2();
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
 
   return (
     <div className="main-container">
@@ -273,6 +292,12 @@ const ShowTable = () => {
           </Table>
         </TableContainer>
       </div>
+
+      <Snackbar open={open} autoHideDuration={600} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success">
+          Deleted succesfully!
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
