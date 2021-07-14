@@ -187,7 +187,7 @@ const ShowTable = () => {
         <div className="no-data-container">
           {" "}
           <Typography variant="h5" gutterBottom>
-            Start by adding first product
+            Start by adding first product 📦
           </Typography>
           <NoData width="100%" height="100%" />
         </div>
@@ -221,34 +221,33 @@ const ShowTable = () => {
                   )
                 : data
               ).map((row) => (
-                <TableRow key={row.id}>
+                <TableRow key={row.id} className="data-row">
                   <TableCell>{row.id}</TableCell>
                   <TableCell align="left">{row.name}</TableCell>
                   <TableCell align="left">
                     {row.price} {row.currency}
                   </TableCell>
                   <TableCell align="center">
-                    <Link
-                      to={{
-                        pathname: "/editData",
-                        state: {
-                          productId: row.id,
-                        },
-                      }}
-                    >
-                      {" "}
-                      <Button variant="outlined" color="primary">
-                        Edit
-                      </Button>
-                    </Link>
+                    <div>
+                      <Link
+                        to={{
+                          pathname: "/editData",
+                          state: {
+                            productId: row.id,
+                          },
+                        }}
+                      >
+                        {" "}
+                        <button className="record-btn">Edit</button>
+                      </Link>
 
-                    <Button
-                      variant="outlined"
-                      color="secondary"
-                      onClick={deleteRecord.bind(this, row.id)}
-                    >
-                      Delete
-                    </Button>
+                      <button
+                        className="record-btn"
+                        onClick={deleteRecord.bind(this, row.id)}
+                      >
+                        🗑️
+                      </button>
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}

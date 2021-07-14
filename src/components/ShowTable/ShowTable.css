@@ -3,13 +3,18 @@
 }
 .main-container {
   background-color: white;
-  width: fit-content;
+  width: 40vw;
+  max-width: 800px;
   font-family: "Source Sans Pro", sans-serif;
 }
 .no-data-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.record-btn {
+  margin-left: 10px;
 }
 @media only screen and (max-width: 600px) {
   .main-container {
