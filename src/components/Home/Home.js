@@ -3,8 +3,9 @@ import "./Home.css";
 import "../Common/Common.css";
 import { Link } from "react-router-dom";
 import ShowTable from "../ShowTable/ShowTable";
-
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+
+//Main container
 const Home = () => {
   return (
     <div className="home-container center-container">
