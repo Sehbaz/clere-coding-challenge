@@ -4,6 +4,7 @@
   padding: 2em;
   border-radius: 12px;
   width: fit-content;
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
 }
 .table-container {
   margin: 0.3em;
