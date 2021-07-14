@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../Common/Common.css";
-import "./ShowTable.css";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import { Link } from "react-router-dom";
@@ -24,6 +22,8 @@ import LastPageIcon from "@material-ui/icons/LastPage";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableFooter from "@material-ui/core/TableFooter";
 import { ReactComponent as NoData } from "../../Image/noDataImg.svg";
+import "../Common/Common.css";
+import "./ShowTable.css";
 
 //Default API endpoint
 axios.defaults.baseURL = "https://test.clerenet.com/product";
@@ -34,6 +34,7 @@ const useStyles1 = makeStyles((theme) => ({
   },
 }));
 
+//  Table Pagination button function
 function TablePaginationActions(props) {
   const classes = useStyles1();
   const theme = useTheme();
@@ -104,12 +105,6 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-const useStyles2 = makeStyles({
-  table: {
-    minWidth: 500,
-  },
-});
-
 //Showing all the records
 const ShowTable = () => {
   const [data, setData] = useState([]);
@@ -143,6 +138,8 @@ const ShowTable = () => {
           })
           .then((res) => {
             setData(res.data);
+
+            // Changing view based on the data from API endpoint
             if (res.data.length > 0) {
               setDataIndicator("block");
               setNoDataIndicator("none");
@@ -162,8 +159,6 @@ const ShowTable = () => {
     };
   }, [data]);
 
-  const [open, setOpen] = React.useState(false);
-
   //Deleting the record from databse by ID
   const deleteRecord = (e) => {
     setOpen(true);
@@ -171,6 +166,8 @@ const ShowTable = () => {
       .delete("https://test.clerenet.com/product/" + e)
       .then(() => getAllData());
   };
+
+  //Pagination for table recrods
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -185,8 +182,9 @@ const ShowTable = () => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  const classes = useStyles2();
 
+  //Snackbar function on delete button pressed
+  const [open, setOpen] = React.useState(false);
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -216,11 +214,7 @@ const ShowTable = () => {
           <h1 className="title">Product Details </h1>
         </div>
         <TableContainer>
-          <Table
-            className={classes.table}
-            aria-label="custom pagination table"
-            size="small"
-          >
+          <Table aria-label="custom pagination table" size="small">
             <TableHead>
               <TableRow>
                 <TableCell align="left">ID</TableCell>
