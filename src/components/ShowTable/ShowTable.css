@@ -1,3 +1,7 @@
 .capi {
   text-transform: uppercase;
 }
+.main-container {
+  background-color: white;
+  font-family: "Source Sans Pro", sans-serif;
+}
