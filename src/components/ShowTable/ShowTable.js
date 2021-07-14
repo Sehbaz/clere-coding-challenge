@@ -202,7 +202,7 @@ const ShowTable = () => {
     <div className="main-container">
       <div style={{ display: noDataIndicator }}>
         {" "}
-        <div className="no-data-container">
+        <div className="no-data-container" style={{ color: "#57606f" }}>
           {" "}
           <Typography variant="h5" gutterBottom>
             start by adding first product 📦

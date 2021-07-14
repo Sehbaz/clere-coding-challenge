@@ -14,7 +14,7 @@ const Home = () => {
           {" "}
           <button className="submit-btn">
             {" "}
-            <AddCircleOutlineIcon></AddCircleOutlineIcon>
+            <AddCircleOutlineIcon fontSize="large"></AddCircleOutlineIcon>
           </button>
         </Link>
       </div>
