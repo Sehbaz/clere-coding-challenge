@@ -59,6 +59,7 @@ const EditData = () => {
       const newData = {
         id: productId,
         name: name,
+        //Converting input text to float
         price: parseFloat(price),
         currency: currency,
       };

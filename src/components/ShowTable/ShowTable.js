@@ -27,6 +27,8 @@ import "./ShowTable.css";
 
 //Default API endpoint
 axios.defaults.baseURL = "https://test.clerenet.com/product";
+
+//Material  UI design
 const useStyles1 = makeStyles((theme) => ({
   root: {
     flexShrink: 0,
