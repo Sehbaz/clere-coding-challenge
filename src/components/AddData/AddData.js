@@ -49,13 +49,20 @@ const AddData = () => {
         currency: currency,
       };
 
-      // Using axios.post() method to add a new record
-      axios
-        .post(`https://test.clerenet.com/product`, newEntry)
-        .then((res) => {});
+      try {
+        // Using axios.post() method to add a new record
+        axios
+          .post(`https://test.clerenet.com/product`, newEntry)
+          .then((res) => {});
 
-      // Routing
-      history.push("/");
+        // Routing
+        history.push("/");
+      } catch (error) {
+        if (axios.isCancel(error)) {
+        } else {
+          throw error;
+        }
+      }
     } else {
       setInvalidCurrencyIndicator("block");
     }
