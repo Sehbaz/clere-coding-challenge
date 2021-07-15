@@ -120,7 +120,7 @@ const AddData = () => {
           <br />
           <br />
         </div>
-        <button type="submit" value="Submit" className="submit-btn">
+        <button type="submit" value="Submit" className="blue-btn">
           SUBMIT
         </button>
       </form>

@@ -13,7 +13,7 @@ const Home = () => {
         {" "}
         <Link to="/addData">
           {" "}
-          <button className="submit-btn">
+          <button className="blue-btn">
             {" "}
             <AddCircleOutlineIcon fontSize="large"></AddCircleOutlineIcon>
           </button>

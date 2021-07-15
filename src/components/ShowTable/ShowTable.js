@@ -253,9 +253,13 @@ const ShowTable = () => {
                           <EditIcon />
                         </IconButton>
                       </Link>
-                      <IconButton aria-label="delete" color="secondary">
-                        <DeleteIcon onClick={deleteRecord.bind(this, row.id)} />
-                      </IconButton>
+                      <div onClick={deleteRecord.bind(this, row.id)}>
+                        {" "}
+                        <IconButton aria-label="delete" color="secondary">
+                          {" "}
+                          <DeleteIcon />
+                        </IconButton>
+                      </div>
                     </div>
                   </TableCell>
                 </TableRow>
