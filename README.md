@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Clere Coding Interview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### [Check it here]( https://lucid-tesla-75c608.netlify.app/) :fire:
+Project is part of an interview process for junior developer role.
 
-In the project directory, you can run:
+The purpose of the coding challenge is for us to gauge candidate aptitude towards developing software based on given requirements. 
 
-### `npm start`
+But also to give you a feel for the kind of work our development team does on a daily basis. The challenge is exclusively a front-end development task.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Set of technical requirements here:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+https://github.com/deltabrot/clere-coding-challenge-api
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+![App Screenshot](https://github.com/Sehbaz/image-storage/blob/main/clere-coding-project/main.png)
+![App Screenshot](https://github.com/Sehbaz/image-storage/blob/main/clere-coding-project/main-2.png)
+![App Screenshot](https://github.com/Sehbaz/image-storage/blob/main/clere-coding-project/add-page.png)
+![App Screenshot](https://github.com/Sehbaz/image-storage/blob/main/clere-coding-project/edit-page.png)
+  
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Frontend:** React,  Material-UI
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Tools:** Axios
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  
+## Run Locally
 
-### `npm run eject`
+Clone the project
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+  git clone https://github.com/Sehbaz/clere-coding-challenge
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Go to the project directory
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+  cd clere-coding-challenge
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Install dependencies
 
-## Learn More
+```bash
+  npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Start the server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  npm run start
+```
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  
