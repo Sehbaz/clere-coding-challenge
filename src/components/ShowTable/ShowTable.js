@@ -253,13 +253,13 @@ const ShowTable = () => {
                           <EditIcon />
                         </IconButton>
                       </Link>
-                      <div onClick={deleteRecord.bind(this, row.id)}>
+                      <span onClick={deleteRecord.bind(this, row.id)}>
                         {" "}
                         <IconButton aria-label="delete" color="secondary">
                           {" "}
                           <DeleteIcon />
                         </IconButton>
-                      </div>
+                      </span>
                     </div>
                   </TableCell>
                 </TableRow>
