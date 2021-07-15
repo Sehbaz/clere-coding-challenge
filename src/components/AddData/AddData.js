@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../Common/Common.css";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import "./AddData.css";
 
 //AddData function to add a new record to database
 const AddData = () => {
