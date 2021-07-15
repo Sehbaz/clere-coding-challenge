@@ -17,8 +17,13 @@
 .record-btn {
   margin-left: 10px;
 }
+@media only screen and (max-width: 900px) {
+  .main-container {
+    width: 70vw;
+  }
+}
 @media only screen and (max-width: 600px) {
   .main-container {
-    width: 60vw;
+    width: 80vw;
   }
 }

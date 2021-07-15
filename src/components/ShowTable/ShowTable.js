@@ -32,7 +32,7 @@ axios.defaults.baseURL = "https://test.clerenet.com/product";
 const useStyles1 = makeStyles((theme) => ({
   root: {
     flexShrink: 0,
-    marginLeft: theme.spacing(2.5),
+    marginLeft: theme.spacing(0),
   },
 }));
 
