@@ -39,13 +39,20 @@ const EditData = () => {
 
   // Fetching record from databased based on productID
   useEffect(() => {
-    axios
-      .get(`https://test.clerenet.com/product/` + productId)
-      .then((result) => {
-        setName(result.data.name);
-        setPrice(result.data.price);
-        setCurrency(result.data.currency);
-      });
+    try {
+      axios
+        .get(`https://test.clerenet.com/product/` + productId)
+        .then((result) => {
+          setName(result.data.name);
+          setPrice(result.data.price);
+          setCurrency(result.data.currency);
+        });
+    } catch (error) {
+      if (axios.isCancel(error)) {
+      } else {
+        throw error;
+      }
+    }
   }, [productId]);
 
   // Edit function is to enter any changed entry to database with refer to productID
@@ -64,8 +71,17 @@ const EditData = () => {
         currency: currency,
       };
 
-      axios.put(`https://test.clerenet.com/product`, newData).then((res) => {});
-      history.push("/");
+      try {
+        axios
+          .put(`https://test.clerenet.com/product`, newData)
+          .then((res) => {});
+        history.push("/");
+      } catch (error) {
+        if (axios.isCancel(error)) {
+        } else {
+          throw error;
+        }
+      }
     } else {
       setInvalidCurrencyIndicator("block");
     }
