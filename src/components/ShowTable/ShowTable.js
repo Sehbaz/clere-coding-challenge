@@ -164,9 +164,17 @@ const ShowTable = () => {
   //Deleting the record from databse by ID
   const deleteRecord = (e) => {
     setOpen(true);
-    axios
-      .delete("https://test.clerenet.com/product/" + e)
-      .then(() => getAllData());
+
+    try {
+      axios
+        .delete("https://test.clerenet.com/product/" + e)
+        .then(() => getAllData());
+    } catch (error) {
+      if (axios.isCancel(error)) {
+      } else {
+        throw error;
+      }
+    }
   };
 
   //Pagination for table recrods
